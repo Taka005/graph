@@ -12,11 +12,11 @@ def main():
     x = sp.Symbol("x")
 
     if len(formula) == 1:
-        img = sp.plotting.plot(formula[0],(x,-3,3),legend=True)
+        img = sp.plotting.plot(formula[0],(x,-3,3),legend=True,show=False)
     elif len(formula) == 2:
-        img = sp.plotting.plot(formula[0],formula[1],(x,-3,3),legend=True)
+        img = sp.plotting.plot(formula[0],formula[1],(x,-3,3),legend=True,show=False)
     elif len(formula) == 3:
-        img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-3,3),legend=True)
+        img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-3,3),legend=True,show=False)
 
     file = io.BytesIO()
     img.save(file)
