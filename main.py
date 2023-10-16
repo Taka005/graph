@@ -31,8 +31,8 @@ def line():
 
     plt.plot(data["x"],data["y"],color="red")
     plt.title(data["title"])
-    plt.xlabel(data["xLabel"])
-    plt.ylabel(data["yLabel"])
+    plt.xlabel(data["xLabel"],fontsize=data["xFont"] or 12)
+    plt.ylabel(data["yLabel"],fontsize=data["yFont"] or 12)
     plt.grid(True)
 
     file = io.BytesIO()
