@@ -36,6 +36,10 @@ def line():
 
     file = io.BytesIO()
     plt.savefig(file,format="png")
+    plt.clf()
+    plt.cla()
+    plt.close()
+
     file.seek(0)
     return send_file(file,mimetype="image/png")
 
@@ -49,6 +53,9 @@ def pie():
 
     file = io.BytesIO()
     plt.savefig(file,format="png")
+    plt.clf()
+    plt.cla()
+    plt.close()
     file.seek(0)
     return send_file(file,mimetype="image/png")
 
