@@ -29,6 +29,7 @@ def main():
 def line():
     data = request.get_json()
 
+    plt.clf()
     plt.plot(data["x"],data["y"],color="red")
     plt.title(data["title"])
     plt.xlabel(data["xLabel"])
@@ -50,8 +51,8 @@ def line():
 def pie():
     data = request.get_json()
 
+    plt.clf()
     plt.pie(data["data"],startangle=90,autopct="%.1f%%",counterclock=False,pctdistance=0.8,labels=data["label"],labeldistance=1.1,colors=data["color"])
-
     plt.title(data["title"],fontsize=18)
 
     file = io.BytesIO()
