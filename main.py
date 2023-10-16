@@ -31,9 +31,10 @@ def line():
 
     plt.plot(data["x"],data["y"],color="red")
     plt.title(data["title"])
-    plt.xlabel(data["xLabel"],fontsize=data.get("xFont") or "12")
-    plt.ylabel(data["yLabel"],fontsize=data.get("yFont") or "12")
+    plt.xlabel(data["xLabel"])
+    plt.ylabel(data["yLabel"])
     plt.grid(True)
+    plt.tick_params(labelsize=data.get("fontSize") or 12)
 
     file = io.BytesIO()
     plt.savefig(file,format="png")
