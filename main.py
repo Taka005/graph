@@ -48,7 +48,7 @@ def line():
 def pie():
     data = request.get_json()
 
-    plt.pie(data["data"],startangle=90,autopct="%.1f%%",pctdistance=0.8,labels=data["label"],labeldistance=1.1,colors=data["color"])
+    plt.pie(data["data"],startangle=90,autopct="%.1f%%",counterclock=True,pctdistance=0.8,labels=data["label"],labeldistance=1.1,colors=data["color"])
 
     plt.title(data["title"],fontsize=18)
 
