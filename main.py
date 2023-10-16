@@ -2,12 +2,13 @@ import sympy as sp
 import numpy as np
 from flask import Flask, request, send_file
 import matplotlib.pyplot as plt
-import japanize_matplotlib
 import io
 import seaborn as sns
 
 sns.set()
 sns.set_style("whitegrid",{"grid.linestyle": "--"})
+
+import japanize_matplotlib
 
 app = Flask(__name__)
 
