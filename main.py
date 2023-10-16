@@ -4,6 +4,10 @@ from flask import Flask, request, send_file
 import matplotlib.pyplot as plt
 import japanize_matplotlib
 import io
+import seaborn as sns
+
+sns.set()
+sns.set_style("whitegrid",{"grid.linestyle": "--"})
 
 app = Flask(__name__)
 
