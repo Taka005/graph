@@ -2,6 +2,7 @@ import sympy as sp
 import numpy as np
 from flask import Flask, request, send_file
 import matplotlib.pyplot as plt
+import japanize_matplotlib
 import io
 
 app = Flask(__name__)
