@@ -25,6 +25,10 @@ def main():
     elif len(formula) == 3:
         img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-8,8),ylim=(-8,8),legend=True,show=False)
 
+    ax = plt.gca()
+    ax.set_aspect("equal",adjustable="box")
+    ax.autoscale(tight=True)
+
     file = io.BytesIO()
     img.save(file)
     file.seek(0)
