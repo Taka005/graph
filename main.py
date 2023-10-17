@@ -3,11 +3,6 @@ import numpy as np
 from flask import Flask, request, send_file
 import matplotlib.pyplot as plt
 import io
-import seaborn as sns
-
-sns.set()
-sns.set_style("whitegrid",{"grid.linestyle": "--"})
-
 import japanize_matplotlib
 
 app = Flask(__name__)
@@ -19,11 +14,16 @@ def main():
     x = sp.Symbol("x")
 
     if len(formula) == 1:
-        img = sp.plotting.plot(formula[0],(x,-8,8),ylim=(-8,8),legend=True,show=False)
+        img = sp.plotting.plot(formula[0],(x,-10,10),ylim=(-10,10),legend=True,show=False,adaptive=False,nb_of_points=1000,detect_poles=True,eps=0.0001)
     elif len(formula) == 2:
-        img = sp.plotting.plot(formula[0],formula[1],(x,-8,8),ylim=(-8,8),legend=True,show=False)
+        img = sp.plotting.plot(formula[0],formula[1],(x,-10,10),ylim=(-10,10),legend=True,show=False,adaptive=False,nb_of_points=1000,detect_poles=True,eps=0.0001)
     elif len(formula) == 3:
-        img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-8,8),ylim=(-8,8),legend=True,show=False)
+        img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-10,10),ylim=(-10,10),legend=True,show=False,adaptive=False,nb_of_points=1000,detect_poles=True,eps=0.0001)
+
+    ax = img.ax
+    ax.set_xticks(np.arange(-10,10))
+    ax.set_yticks(np.arange(-10,10))
+    ax.grid(True) 
 
     file = io.BytesIO()
     img.save(file)
