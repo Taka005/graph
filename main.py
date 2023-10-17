@@ -14,11 +14,11 @@ def main():
     x = sp.Symbol("x")
 
     if len(formula) == 1:
-        img = sp.plotting.plot(formula[0],(x,-10,10),ylim=(-10,10),legend=True,show=False,adaptive=False,nb_of_points=1000,detect_poles=True,eps=0.0001)
+        img = sp.plotting.plot(formula[0],(x,-10,10),ylim=(-10,10),legend=True,show=False)
     elif len(formula) == 2:
-        img = sp.plotting.plot(formula[0],formula[1],(x,-10,10),ylim=(-10,10),legend=True,show=False,adaptive=False,nb_of_points=1000,detect_poles=True,eps=0.0001)
+        img = sp.plotting.plot(formula[0],formula[1],(x,-10,10),ylim=(-10,10),legend=True,show=False)
     elif len(formula) == 3:
-        img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-10,10),ylim=(-10,10),legend=True,show=False,adaptive=False,nb_of_points=1000,detect_poles=True,eps=0.0001)
+        img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-10,10),ylim=(-10,10),legend=True,show=False)
 
     ax = img.ax
     ax.set_xticks(np.arange(-10,10))
