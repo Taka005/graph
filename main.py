@@ -16,19 +16,22 @@ app = Flask(__name__)
 def main():
     formula = request.args.get("formula").replace(" ","+").split(",")
 
-    x = sp.Symbol("x")
+    try:
+        x = sp.Symbol("x")
 
-    if len(formula) == 1:
-        img = sp.plotting.plot(formula[0],(x,-8,8),ylim=(-8,8),legend=True,show=False)
-    elif len(formula) == 2:
-        img = sp.plotting.plot(formula[0],formula[1],(x,-8,8),ylim=(-8,8),legend=True,show=False)
-    elif len(formula) == 3:
-        img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-8,8),ylim=(-8,8),legend=True,show=False)
+        if len(formula) == 1:
+            img = sp.plotting.plot(formula[0],(x,-8,8),ylim=(-8,8),legend=True,show=False)
+        elif len(formula) == 2:
+            img = sp.plotting.plot(formula[0],formula[1],(x,-8,8),ylim=(-8,8),legend=True,show=False)
+        elif len(formula) == 3:
+            img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-8,8),ylim=(-8,8),legend=True,show=False)
 
-    file = io.BytesIO()
-    img.save(file)
-    file.seek(0)
-    return send_file(file,mimetype="image/png")
+        file = io.BytesIO()
+        img.save(file)
+        file.seek(0)
+        return send_file(file,mimetype="image/png")
+    except:
+        return "Generating Error"
 
 @app.route("/line",methods=["POST"])
 def line():
