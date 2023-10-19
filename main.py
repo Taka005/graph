@@ -31,7 +31,7 @@ def main():
         file.seek(0)
         return send_file(file,mimetype="image/png")
     except:
-        return "Generating Error"
+        return "Generation Error"
 
 @app.route("/line",methods=["POST"])
 def line():
