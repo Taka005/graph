@@ -1,6 +1,6 @@
 import sympy as sp
 import numpy as np
-from flask import Flask, request, send_file
+from flask import Flask, request, send_file, abort
 import matplotlib.pyplot as plt
 import io
 import seaborn as sns
@@ -31,7 +31,8 @@ def main():
         file.seek(0)
         return send_file(file,mimetype="image/png")
     except:
-        return "Generation Error",400
+        abort(400,"Generation Error")
+        return "Generation Error"
 
 @app.route("/line",methods=["POST"])
 def line():
