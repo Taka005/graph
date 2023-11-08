@@ -14,18 +14,10 @@ app = Flask(__name__)
 
 @app.route("/",methods=["GET"])
 def main():
-    formula = request.args.get("formula").replace(" ","+").split(",")
-
     try:
+        formula = request.args.get("formula").replace(" ","+").split(",")
         x = sp.Symbol("x")
-
-        if len(formula) == 1:
-            img = sp.plotting.plot(formula[0],(x,-8,8),ylim=(-8,8),legend=True,show=False)
-        elif len(formula) == 2:
-            img = sp.plotting.plot(formula[0],formula[1],(x,-8,8),ylim=(-8,8),legend=True,show=False)
-        elif len(formula) == 3:
-            img = sp.plotting.plot(formula[0],formula[1],formula[2],(x,-8,8),ylim=(-8,8),legend=True,show=False)
-
+        img = sp.plotting.plot(*formula,(x,-8,8),ylim=(-8,8),legend=True,show=False)
         file = io.BytesIO()
         img.save(file)
         file.seek(0)
