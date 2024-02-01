@@ -34,7 +34,7 @@ def line():
     plt.title(data["title"])
     plt.xlabel(data["xLabel"])
     plt.ylabel(data["yLabel"])
-    plt.grid(data.get("grid") or True)
+    plt.grid(bool(data.get("grid")) or True)
     plt.tick_params(axis="x",labelsize=data.get("xFont") or 12)
     plt.tick_params(axis="y",labelsize=data.get("yFont") or 12)
 
