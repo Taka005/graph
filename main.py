@@ -52,8 +52,38 @@ def pie():
     data = request.get_json()
 
     plt.clf()
-    plt.pie(data["data"],startangle=90,autopct="%.1f%%",counterclock=False,pctdistance=0.8,labels=data["label"],labeldistance=1.1,colors=data["color"])
+    plt.pie(
+        data["data"],
+        startangle=90,
+        autopct="%.1f%%",
+        counterclock=False,
+        pctdistance=0.8,
+        labels=data["label"],
+        labeldistance=1.1,
+        colors=data["color"]
+    )
     plt.title(data["title"],fontsize=18)
+
+    file = io.BytesIO()
+    plt.savefig(file,format="png")
+    plt.clf()
+    plt.cla()
+    plt.close()
+    file.seek(0)
+    return send_file(file,mimetype="image/png")
+
+@app.route("/table",methods=["POST"])
+def table():
+    data = request.get_json()
+
+    plt.clf()
+    plt.table(
+        cellText=data["data"],
+        colLabels=data["label"],
+        colColours=[data["colColor"]]*len(data["label"]),
+        rowColours=[data["rowColor"]]*len(data["data"]),
+        loc="center"
+    )
 
     file = io.BytesIO()
     plt.savefig(file,format="png")
