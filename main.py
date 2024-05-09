@@ -80,8 +80,8 @@ def table():
     plt.table(
         cellText=data["data"],
         colLabels=data["label"],
-        colColours=[data["colColor"]]*len(data["label"]),
-        rowColours=[data["rowColor"]]*len(data["data"]),
+        #colColours=[data["colColor"]]*len(data["label"]),
+        #rowColours=[data["rowColor"]]*len(data["data"]),
         loc="center"
     )
 
