@@ -84,8 +84,12 @@ def table():
     ax.table(
         cellText=data["data"],
         colLabels=data["label"],
+        cellLoc="center",
         loc="center"
     )
+
+    bbox = ax.get_position()
+    plt.subplots_adjust(left=bbox.x0,bottom=bbox.y0,right=bbox.x1,top=bbox.y1)
 
     fig.tight_layout()
 
