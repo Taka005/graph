@@ -39,7 +39,7 @@ def line():
     plt.tick_params(axis="y",labelsize=data.get("yFont") or 12)
 
     file = io.BytesIO()
-    plt.savefig(file,format="png")
+    plt.savefig(file,format="png",dpi=300)
     plt.clf()
     plt.cla()
     plt.close()
@@ -65,7 +65,7 @@ def pie():
     plt.title(data["title"],fontsize=18)
 
     file = io.BytesIO()
-    plt.savefig(file,format="png")
+    plt.savefig(file,format="png",dpi=300,bbox_inches = "tight",pad_inches = 0)
     plt.clf()
     plt.cla()
     plt.close()
@@ -93,7 +93,7 @@ def table():
     fig.tight_layout()
 
     file = io.BytesIO()
-    plt.savefig(file,format="png")
+    plt.savefig(file,format="png",dpi=300)
     plt.clf()
     plt.cla()
     plt.close()
