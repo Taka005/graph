@@ -85,13 +85,13 @@ def table():
         cellText=data["data"],
         colLabels=data["label"],
         cellLoc="center",
-        loc="center"
+        loc="top"
     )
 
     fig.tight_layout()
 
     file = io.BytesIO()
-    plt.savefig(file,format="png",dpi=300,bbox_inches="tight",pad_inches=0)
+    plt.savefig(file,format="png",dpi=300,bbox_inches="tight",pad_inches=5)
     plt.clf()
     plt.cla()
     plt.close()
