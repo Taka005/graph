@@ -93,8 +93,6 @@ def table():
     file = io.BytesIO()
     plt.savefig(file,format="png",dpi=300,bbox_inches="tight",pad_inches=1)
 
-    file = io.BytesIO()
-    plt.savefig(file,format="png",dpi=300)
     plt.clf()
     plt.cla()
     plt.close()
