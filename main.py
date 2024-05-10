@@ -65,7 +65,7 @@ def pie():
     plt.title(data["title"],fontsize=18)
 
     file = io.BytesIO()
-    plt.savefig(file,format="png",dpi=300,bbox_inches = "tight",pad_inches = 0)
+    plt.savefig(file,format="png",dpi=300)
     plt.clf()
     plt.cla()
     plt.close()
@@ -88,12 +88,10 @@ def table():
         loc="center"
     )
 
-    fig.subplots_adjust(left=0,right=1,bottom=0,top=1)
-
     fig.tight_layout()
 
     file = io.BytesIO()
-    plt.savefig(file,format="png",dpi=300)
+    plt.savefig(file,format="png",dpi=300,bbox_inches="tight",pad_inches=0)
     plt.clf()
     plt.cla()
     plt.close()
