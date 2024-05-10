@@ -88,8 +88,6 @@ def table():
         loc="top"
     )
 
-    fig.tight_layout()
-
     file = io.BytesIO()
     plt.savefig(file,format="png",dpi=300)
     plt.clf()
