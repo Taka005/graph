@@ -77,13 +77,17 @@ def table():
     data = request.get_json()
 
     plt.clf()
-    plt.table(
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    ax.axis("off")
+    ax.table(
         cellText=data["data"],
         colLabels=data["label"],
-        #colColours=[data["colColor"]]*len(data["label"]),
-        #rowColours=[data["rowColor"]]*len(data["data"]),
         loc="center"
     )
+
+    fig.tight_layout()
 
     file = io.BytesIO()
     plt.savefig(file,format="png")
