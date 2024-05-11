@@ -85,7 +85,7 @@ def table():
         cellText=data["data"],
         colLabels=data["label"],
         cellLoc="center",
-        loc="top"
+        loc="center"
     )
 
     fig.tight_layout()
