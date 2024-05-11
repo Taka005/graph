@@ -91,7 +91,7 @@ def table():
     fig.tight_layout()
 
     file = io.BytesIO()
-    plt.savefig(file,format="png",dpi=300,bbox_inches="tight",pad_inches=0.1)
+    plt.savefig(file,format="png",dpi=300,bbox_inches="tight")
 
     plt.clf()
     plt.cla()
